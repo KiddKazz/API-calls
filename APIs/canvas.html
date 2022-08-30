@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas API</title>
+</head>
+<body>
+    <h1>Canvas API</h1>
+    <canvas width="500" height="400" id="draw" style="border: 1px solid black;">
+        Your browser does not support the &lt;canvas&gt; tag or JavaScript is disabled.<br>Please ensure that JavaScript is turned on or use a modern browser with the latest updates.
+    </canvas>
+    <script>
+        var canvas = document.getElementById('draw');
+        var context = canvas.getContext('2d');
+
+        // Draw a blue rectangle
+        context.fillStyle = 'Blue';
+        context.fillRect(50,50,250,300);
+
+        // Draw a yellow circle
+        var centerX = canvas.width / 4;
+        var centerY = canvas.height / 4;
+        var radius = 70;
+
+        context.beginPath();
+        context.arc(centerX,centerY,radius,0,2 * Math.PI,false);
+        context.fillStyle = 'Yellow';
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = 'Black';
+        context.stroke();
+    </script>
+</body>
+</html>

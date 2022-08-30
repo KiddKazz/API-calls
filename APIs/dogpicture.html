@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Pictures</title>
+    <script>
+        function getDogPicture() {
+            fetch('https://dog.ceo/api/breeds/image/random', {method: 'get'})
+                .then((resp) => resp.json())
+                .then(function(data) {
+                    document.getElementById('dogpicture').innerHTML =
+                        '<img src="' + data.message + '" alt="Dog picture" style="width: 300px;">';
+                })
+        }
+    </script>
+</head>
+<body>
+    <h1>Dog Pictures</h1>
+    <button onclick="getDogPicture()">Show Me</button>
+    <p id="dogpicture"></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Session/Local Storage values</title>
+</head>
+<body>
+    <h1>Get Session/Local Storage values</h1>
+    <p id="storageinfo"></p>
+    <script>
+        if (sessionStorage.getItem('customerName') == null) {
+            document.getElementById('storageinfo').innerHTML = 'customerName item does not exist';
+        } else {
+            document.getElementById('storageinfo').innerHTML =
+                `Local Storage: ${localStorage.getItem('customerName')} <br>Session Storage: ${sessionStorage.getItem('customerName')}`;
+        }
+        </script>
+</body>
+</html>

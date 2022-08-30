@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zipcode Information</title>
+    <script>
+        function replace(theZipCode) {
+            // url (required), options (optional)
+            fetch('https://ziptasticapi.com/' + theZipCode, { method: 'get'})
+                .then((resp) => resp.json()) // Transform the date inso JSON
+                .then(function(data) {
+                    document.getElementById('zipcodedetails').innerHTML =
+                        'Country: ' + data.country + '<br>' +
+                        'State: ' + data.state + '<br>' +
+                        'City: ' + data.city
+                })
+        }
+    </script>
+</head>
+<body>
+    <h1>Zipcode Information</h1>
+    <hr>
+    <form name="myForm" method="post" action="javascript: replace(document.myForm.zipcode.value);">
+        Zipcode: <input name="zipcode" type="text" maxlength="5" size="5"> (5 digits only)<br><br>
+        <input type="submit" value="Get Zipcode Details">
+    </form>
+    <p>Call will be made to <a href="https://ziptasticapi.com/" target="_blank">
+        https://ziptasticapi.com/</a> which returns the country, state and city in JSON format.</p>
+    <div id="zipcodedetails"> </div>
+</body>
+</html>
